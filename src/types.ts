@@ -5,5 +5,5 @@ export interface Weather {
   rainfallQuantity: number
   windDirection: number
   windVelocity: number
-  hpaPressure: number
+  hPaPressure: number
 }
