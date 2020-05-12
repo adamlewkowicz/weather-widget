@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import arrowIcon from '../assets/arrow.svg';
 
 interface WindDetailsProps {
-
+  velocity: number
 }
 
 export const WindDetails = (props: WindDetailsProps) => {
@@ -12,7 +12,7 @@ export const WindDetails = (props: WindDetailsProps) => {
       <Arrow src={arrowIcon} />
       <Direction>Południowy</Direction>
       <VelocityTitle>Słaby</VelocityTitle>
-      <Velocity>4 km/h</Velocity>
+      <Velocity>{props.velocity.toFixed(0)} km/h</Velocity>
     </Container>
   );
 }

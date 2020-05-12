@@ -9,14 +9,15 @@ interface TheatreProps {
 export const Theatre = (props: TheatreProps) => {
   return (
     <Container>
-      <TriangleButton />
+      {/* <TriangleButton /> */}
       {props.children}
     </Container>
   );
 }
 
 const Container = styled.div`
-  box-shadow:
+  overflow-x: scroll;
+  /* box-shadow:
     inset 20px -20px 30px #adadad,
-    inset -20px -20px 30px #fff;
+    inset -20px -20px 30px #fff; */
 `

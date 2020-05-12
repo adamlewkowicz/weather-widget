@@ -24,11 +24,6 @@ export const WeatherWidget = (props: WeatherWidgetProps) => {
             />
           ))}
         </BlocksContainer>
-        <LineChart
-          data={[7, 7, 7, 10, 11, 9, 5]}
-          labels={[11, 12, 13, 14, 15, 16]}
-          label="Temperatura"
-        />
         <LineCharts
           width={chartWidth}
           data={[7, 7, 7, 10, 11, 9, 5]}

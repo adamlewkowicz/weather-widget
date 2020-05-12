@@ -13,10 +13,10 @@ export const WeatherBlock = (props: WeatherBlockProps) => {
     <Container>
       <Time>12:00</Time>
       <Temperature>
-        {props.weather.temperature}&#176;
+        {props.weather.temperature.toFixed(0)}&#176;
       </Temperature>
       <Rainfall value={props.weather.rainfallQuantity} />
-      <WindDetails />
+      <WindDetails velocity={props.weather.windVelocity} />
       <p>{props.weather.hPaPressure} hPa</p>
     </Container>
   );
