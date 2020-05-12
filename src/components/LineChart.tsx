@@ -65,10 +65,12 @@ const options = {
       display: false,
     }],
     yAxes: [{
-      display: false,
+      // display: false,
       ticks: {
         beginAtZero: true,
       },
+      barThickness: 20,  // number (pixels) or 'flex'
+      maxBarThickness: 20 // number (pixels)
     }]
   }
 };

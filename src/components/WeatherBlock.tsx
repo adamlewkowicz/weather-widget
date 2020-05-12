@@ -34,7 +34,7 @@ const Temperature = styled.p`
   font-weight: bold;
 `
 
-const Time = styled.p`
+export const Time = styled.p`
   font-size: 20px;
   font-weight: bold;
 `
