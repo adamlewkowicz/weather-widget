@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Weather } from '../types';
 import { WeatherBlock } from './WeatherBlock';
+import { LineChart } from './LineChart';
 
 interface WeatherWidgetProps {
   data: Weather[]
@@ -17,6 +18,11 @@ export const WeatherWidget = (props: WeatherWidgetProps) => {
           />
         ))}
       </BlocksContainer>
+      <LineChart
+        data={[7, 7, 7, 10, 11, 9, 5]}
+        labels={[11, 12, 13, 14, 15, 16]}
+        label="Temperatura"
+      />
     </Container>
   );
 }
