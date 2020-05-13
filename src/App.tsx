@@ -1,33 +1,30 @@
-// @ts-ignore
-import * as React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { WeatherWidget } from './components/WeatherWidget';
+import { randomBetweenRange } from './utils';
+import { Weather } from './types';
 
 const GlobalStyle = createGlobalStyle`
   font-family: 'Source Sans Pro';
   box-sizing: border-box;
 `
 
-const randomBetweenRange = (min: number, max: number) => Math.random() * (max - min);
-
-const mockData = Array
-  .from({ length: 24 })
-  .map((_, index) => ({
-    hour: index,
-    hPaPressure: randomBetweenRange(1112, 1114),
+const weatherData = Array
+  .from({ length: 32 })
+  .map((_, index): Weather => ({
+    hour: index % 24 + 1,
+    hPaPressure: randomBetweenRange(1108, 1120),
     rainfallQuantity: randomBetweenRange(0.1, 0.8),
-    windDirection: 4,
-    windVelocity: randomBetweenRange(12, 22),
+    windDirection: randomBetweenRange(0, 340),
+    windVelocity: randomBetweenRange(1, 29),
     temperature: randomBetweenRange(-4, 10)
-  }))
+  }));
 
 export const App = () => (
   <Container>
     <GlobalStyle />
     <WeatherWidget 
-      data={mockData}
+      data={weatherData}
     />
   </Container>
 );

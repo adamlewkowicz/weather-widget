@@ -10,6 +10,8 @@ import { WeatherRow } from './WeatherGrid';
 import { Rainfall } from './Rainfall';
 import { TempLabel } from './TempLabel';
 import { HPaLabel } from './HpaLabel';
+import { WindDetails } from './WindDetails';
+import { formatTime } from '../utils';
 
 interface WeatherWidgetProps {
   data: Weather[]
@@ -29,14 +31,33 @@ export const WeatherWidget = (props: WeatherWidgetProps) => {
         <Title>Opady</Title>
       </Titles>
       <Theatre>
-        <WeatherRow data={props.data} renderItem={() => <Time>12:00</Time>} />
+        <WeatherRow
+          data={props.data}
+          renderItem={weather => (
+            <Time>{formatTime(weather.hour)}</Time>
+          )}
+        />
         <LineCharts
           width={chartWidth}
           data={temperatures}
           renderLabel={TempLabel}
           color="#FFE05E"
         />
-        <WeatherRow data={props.data} renderItem={weather => <Rainfall value={weather.rainfallQuantity} />} />
+        <WeatherRow
+          data={props.data}
+          renderItem={weather => (
+            <Rainfall value={weather.rainfallQuantity} />
+          )}
+        />
+        <WeatherRow
+          data={props.data}
+          renderItem={weather => (
+            <WindDetails
+              velocity={weather.windVelocity}
+              direction={weather.windDirection}  
+            />
+          )}
+        />
         <LineCharts
           width={chartWidth}
           data={pressures}

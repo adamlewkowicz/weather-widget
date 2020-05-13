@@ -1,17 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 import arrowIcon from '../assets/arrow.svg';
+import { getDirectionTitle, getWindVelocityTitle } from '../utils';
 
 interface WindDetailsProps {
   velocity: number
+  direction: number
 }
 
 export const WindDetails = (props: WindDetailsProps) => {
+  const { direction } = props;
+  const directionTitle = getDirectionTitle(props.direction);
+  const velocityTitle = getWindVelocityTitle(props.velocity);
+
   return (
     <Container>
-      <Arrow src={arrowIcon} />
-      <Direction>Południowy</Direction>
-      <VelocityTitle>Słaby</VelocityTitle>
+      <Arrow src={arrowIcon} direction={direction} />
+      <Direction>{directionTitle}</Direction>
+      <VelocityTitle>{velocityTitle}</VelocityTitle>
       <Velocity>{props.velocity.toFixed(0)} km/h</Velocity>
     </Container>
   );
@@ -23,10 +29,12 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 15px;
+  width: 100%;
 `
 
-const Arrow = styled.img`
+const Arrow = styled.img<{ direction: number }>`
   height: 35px;
+  transform: rotate(${props => props.direction}deg);
 `
 
 const Direction = styled.p`
