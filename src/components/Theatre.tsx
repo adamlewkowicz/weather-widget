@@ -2,14 +2,15 @@ import React, { ReactNode, useRef } from 'react';
 import styled from 'styled-components';
 import { TriangleButton } from './TriangleButton';
 import ScrollContainer from 'react-indiana-drag-scroll';
-import { useScroll } from '../hooks/useScroll';
+import { useColumnScroll } from '../hooks/useColumnScroll';
+import { WEATHER_COLUMN_WIDTH } from '../common/consts';
 interface TheatreProps {
   children?: ReactNode
 }
 
 export const Theatre = (props: TheatreProps) => {
   const containerRef = useRef<ScrollContainer>(null);
-  const scroll = useScroll(containerRef);
+  const scroll = useColumnScroll(containerRef, { columnWidth: WEATHER_COLUMN_WIDTH });
 
   return (
     <Container>

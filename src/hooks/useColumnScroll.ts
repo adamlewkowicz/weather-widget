@@ -1,17 +1,19 @@
 import ScrollContainer from 'react-indiana-drag-scroll';
-import { WEATHER_COLUMN_WIDTH } from '../common/consts';
 
-export const useScroll = (ref: React.RefObject<ScrollContainer>) => {
+export const useColumnScroll = (
+  ref: React.RefObject<ScrollContainer>,
+  options: { columnWidth: number }
+) => {
 
   const handleScrollBack = () => {
-    const element = ref.current?.getElement()
+    const element = ref.current?.getElement();
     const scrollLeft = element?.scrollLeft;
 
     if (scrollLeft == null) {
       return;
     }
 
-    const nextScroll = scrollLeft - WEATHER_COLUMN_WIDTH;
+    const nextScroll = scrollLeft - options.columnWidth;
 
     element?.scroll({
       left: nextScroll,
@@ -27,8 +29,8 @@ export const useScroll = (ref: React.RefObject<ScrollContainer>) => {
       return;
     }
 
-    const position = Math.floor(scrollLeft / WEATHER_COLUMN_WIDTH);
-    const nextScroll = position * WEATHER_COLUMN_WIDTH + WEATHER_COLUMN_WIDTH;
+    const position = Math.floor(scrollLeft / options.columnWidth);
+    const nextScroll = position * options.columnWidth + options.columnWidth;
 
     element?.scroll({
       left: nextScroll,
