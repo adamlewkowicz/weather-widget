@@ -6,10 +6,10 @@ import { LineChart } from './LineChart';
 import { LineCharts } from './LineCharts';
 import { WEATHER_COLUMN_WIDTH } from '../common/consts';
 import { Theatre } from './Theatre';
-import { WeatherRow } from './WeatherGrid';
+import { WeatherRow } from './WeatherRow';
 import { Rainfall } from './Rainfall';
-import { TempLabel } from './TempLabel';
-import { HPaLabel } from './HpaLabel';
+import { TemperatureLabel } from './TemperatureLabel';
+import { PressureLabel } from './PressureLabel';
 import { WindDetails } from './WindDetails';
 import { formatTime } from '../common/utils';
 import { Title } from './Title';
@@ -43,7 +43,7 @@ export const WeatherWidget = (props: WeatherWidgetProps) => {
         <LineCharts
           width={chartWidth}
           data={temperatures}
-          renderLabel={TempLabel}
+          renderLabel={TemperatureLabel}
           color="#FFE05E"
         />
         <WeatherRow
@@ -64,7 +64,7 @@ export const WeatherWidget = (props: WeatherWidgetProps) => {
         <LineCharts
           width={chartWidth}
           data={pressures}
-          renderLabel={HPaLabel}
+          renderLabel={PressureLabel}
           color="#000"
         />
         {/* <BlocksContainer>

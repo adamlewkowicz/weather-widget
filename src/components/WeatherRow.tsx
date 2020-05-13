@@ -2,13 +2,13 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { WEATHER_COLUMN_WIDTH } from '../common/consts';
 
-interface WeatherGridProps<T> {
+interface WeatherRowProps<T> {
   data: T[]
   title?: string
   renderItem: (item: T) => ReactNode
 }
 
-export const WeatherRow = <T extends object>(props: WeatherGridProps<T>) => {
+export const WeatherRow = <T extends object>(props: WeatherRowProps<T>) => {
   return (
     <Container>
       {props.title}
@@ -23,7 +23,6 @@ export const WeatherRow = <T extends object>(props: WeatherGridProps<T>) => {
 
 const Container = styled.div`
   display: flex;
-  
 `
 
 const Item = styled.div`
