@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { Weather } from '../types';
 import { WeatherBlock, Time } from './WeatherBlock';
-import { LineChart } from './LineChart';
 import { LineCharts } from './LineCharts';
 import { WEATHER_COLUMN_WIDTH } from '../common/consts';
 import { Theatre } from './Theatre';
