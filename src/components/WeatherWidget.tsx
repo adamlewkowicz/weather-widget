@@ -4,21 +4,21 @@ import { Weather } from '../types';
 import { WeatherBlock, Time } from './WeatherBlock';
 import { LineChart } from './LineChart';
 import { LineCharts } from './LineCharts';
-import { WEATHER_BLOCK_WIDTH } from '../consts';
+import { WEATHER_COLUMN_WIDTH } from '../common/consts';
 import { Theatre } from './Theatre';
 import { WeatherRow } from './WeatherGrid';
 import { Rainfall } from './Rainfall';
 import { TempLabel } from './TempLabel';
 import { HPaLabel } from './HpaLabel';
 import { WindDetails } from './WindDetails';
-import { formatTime } from '../utils';
+import { formatTime } from '../common/utils';
 
 interface WeatherWidgetProps {
   data: Weather[]
 }
 
 export const WeatherWidget = (props: WeatherWidgetProps) => {
-  const chartWidth = props.data.length * WEATHER_BLOCK_WIDTH;
+  const chartWidth = props.data.length * WEATHER_COLUMN_WIDTH;
   const temperatures = props.data.map(weather => weather.temperature);
   const pressures = props.data.map(weather => weather.hPaPressure);
   
@@ -34,7 +34,7 @@ export const WeatherWidget = (props: WeatherWidgetProps) => {
         <WeatherRow
           data={props.data}
           renderItem={weather => (
-            <Time>{formatTime(weather.hour)}</Time>
+            <Time>{formatTime(weather.time)}</Time>
           )}
         />
         <LineCharts

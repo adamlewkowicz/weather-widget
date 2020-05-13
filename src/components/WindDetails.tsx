@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import arrowIcon from '../assets/arrow.svg';
-import { getDirectionTitle, getWindVelocityTitle } from '../utils';
+import { getDirectionTitle, getWindVelocityTitle } from '../common/utils';
 
 interface WindDetailsProps {
   velocity: number

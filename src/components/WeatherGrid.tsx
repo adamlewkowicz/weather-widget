@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
-import { WEATHER_BLOCK_WIDTH } from '../consts';
+import { WEATHER_COLUMN_WIDTH } from '../common/consts';
 
 interface WeatherGridProps<T> {
   data: T[]
@@ -27,7 +27,7 @@ const Container = styled.div`
 `
 
 const Item = styled.div`
-  min-width: ${WEATHER_BLOCK_WIDTH}px;
+  min-width: ${WEATHER_COLUMN_WIDTH}px;
   display: flex;
   align-items: center;
   justify-content: center;

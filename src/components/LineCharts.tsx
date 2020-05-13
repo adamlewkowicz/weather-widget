@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import {
   LineChart, Line, YAxis, CartesianAxis
 } from 'recharts';
-import { WEATHER_BLOCK_WIDTH } from '../consts';
+import { WEATHER_COLUMN_WIDTH } from '../common/consts';
 
 interface LineChartsProps {
   width: number
@@ -16,7 +16,7 @@ export const LineCharts = (props: LineChartsProps) => {
   const normalizedData = props.data.map(record => ({
     [DATA_KEY]: record
   }));
-  const margin = WEATHER_BLOCK_WIDTH / 2 - 30;
+  const margin = WEATHER_COLUMN_WIDTH / 2 - 30;
 
   return (
     <LineChart
