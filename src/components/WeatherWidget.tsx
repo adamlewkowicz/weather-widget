@@ -12,6 +12,7 @@ import { TempLabel } from './TempLabel';
 import { HPaLabel } from './HpaLabel';
 import { WindDetails } from './WindDetails';
 import { formatTime } from '../common/utils';
+import { Title } from './Title';
 
 interface WeatherWidgetProps {
   data: Weather[]
@@ -25,10 +26,12 @@ export const WeatherWidget = (props: WeatherWidgetProps) => {
   return (
     <Container>
       <Titles>
-        <Title>Dzień</Title>
-        <Title>Godzina</Title>
-        <Title>Temperatura</Title>
-        <Title>Opady</Title>
+        <Title height={65}>Godzina</Title>
+        <Title height={210}>Temperatura</Title>
+        <Title height={100}>Opady</Title>
+        <Title height={80}>Kierunek wiatru</Title>
+        <Title height={80}>Prędkość wiatru</Title>
+        <Title height={120}>Ciśnienie</Title>
       </Titles>
       <Theatre>
         <WeatherRow
@@ -86,10 +89,7 @@ const BlocksContainer = styled.ul`
   flex-direction: row;
 `
 
-const Titles = styled.div`
-
-`
-
-const Title = styled.p`
-
+const Titles = styled.ul`
+  padding: 0;
+  margin: 0;
 `

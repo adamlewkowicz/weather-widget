@@ -31,3 +31,5 @@ export const getWindVelocityTitle = (velocity: number): string => {
 export const formatTime = (time: number): string => `${String(time).padStart(2, '0')}:00`;
 
 export const randomBetweenRange = (min: number, max: number) => Math.random() * (max - min) + min;
+
+export const getFixedLocale = (value: number, places: number) => Number(value.toFixed(places)).toLocaleString();

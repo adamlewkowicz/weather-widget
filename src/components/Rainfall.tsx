@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { getFixedLocale } from '../common/utils';
 
 interface RainfallProps {
   value: number
@@ -7,10 +8,11 @@ interface RainfallProps {
 
 export const Rainfall = (props: RainfallProps) => {
   const chartHeight = props.value * 25;
+  const value = getFixedLocale(props.value, 1);
 
   return (
     <Container>
-      <Quantity>{props.value.toLocaleString()} mm</Quantity>
+      <Quantity>{value} mm</Quantity>
       <Chart
         style={{ height: chartHeight }}
       />

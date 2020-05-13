@@ -25,7 +25,6 @@ const Container = styled.button<{ left?: boolean }>`
   border-style: none;
   outline: none;
   cursor: pointer;
-  transform: translateX(-50%);
   &:hover {
     background-color: rgba(1,1,1,.2);
   }
