@@ -3,6 +3,7 @@ Widget wyświetlający dane pogodowe
 
 ## Cechy
 - dynamicznie wyświetlanie danych: kierunek, prędkość wiatru, opady, godzina, ciśnienie oraz temperatura
+- przewijanie do następnej/poprzedniej kolumny
 
 ## Instalacja
 1) Pobierz repozytorium

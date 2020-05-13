@@ -7,7 +7,6 @@ export const TempLabel = (props: any) => {
       y={props.y}
       dy={-16}
       dx={2}
-      // fill={stroke}
       fontSize={24}
       fontWeight="bold"
       textAnchor="middle"
