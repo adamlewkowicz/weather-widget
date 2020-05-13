@@ -1,11 +1,15 @@
 import React, { ReactNode } from 'react';
 import {
-  LineChart, Line, YAxis, CartesianAxis
+  LineChart,
+  Line,
+  CartesianAxis,
 } from 'recharts';
 import { WEATHER_COLUMN_WIDTH } from '../common/consts';
+import { LineChartPoint } from './LineChartPoint';
 
 interface LineChartsProps {
   width: number
+  height?: number
   data: number[]
   renderLabel?: (props: any) => ReactNode
   color?: string
@@ -21,7 +25,7 @@ export const LineCharts = (props: LineChartsProps) => {
   return (
     <LineChart
       width={props.width}
-      height={150}
+      height={props.height ?? 150}
       data={normalizedData}
       margin={{ top: 30, left: 25, right: 60, bottom: 30 }}
       style={{ padding: 30 }}
@@ -36,21 +40,8 @@ export const LineCharts = (props: LineChartsProps) => {
         points={[{ x: 1, y: 12, value: 140 }]}
         // activeDot={{ r: 8 }}
         strokeWidth={2}
-        dot={CustomDot}
+        dot={LineChartPoint}
       />
     </LineChart>
-  );
-}
-
-const CustomDot = (props: any) => {
-  return (
-    <circle
-      cx={props.cx}
-      cy={props.cy}
-      r={7}
-      stroke="black"
-      strokeWidth={2}
-      fill="#fff"
-    />
   );
 }
