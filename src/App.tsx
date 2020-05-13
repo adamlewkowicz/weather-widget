@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { WeatherWidget } from './components/WeatherWidget';
-import { randomBetweenRange } from './common/utils';
+import { randomBetweenRange, getRandomItem } from './common/utils';
 import { Weather } from './types';
 
 const GlobalStyle = createGlobalStyle`
@@ -17,7 +17,8 @@ const weatherData = Array
     rainfallQuantity: randomBetweenRange(0.1, 0.8),
     windDirection: randomBetweenRange(0, 340),
     windVelocity: randomBetweenRange(1, 29),
-    temperature: randomBetweenRange(-4, 10)
+    temperature: randomBetweenRange(-4, 10),
+    state: getRandomItem(['cloudy', 'rainy', 'sunny'])
   }));
 
 export const App = () => (

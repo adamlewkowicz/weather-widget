@@ -6,4 +6,7 @@ export interface Weather {
   windDirection: number
   windVelocity: number
   hPaPressure: number
+  state: WeatherState
 }
+
+export type WeatherState = 'sunny' | 'rainy' | 'cloudy';

@@ -12,6 +12,7 @@ import { PressureLabel } from './PressureLabel';
 import { WindDetails } from './WindDetails';
 import { formatTime } from '../common/utils';
 import { Title } from './Title';
+import { WeatherPrognosis } from './WeatherState';
 
 interface WeatherWidgetProps {
   data: Weather[]
@@ -26,6 +27,7 @@ export const WeatherWidget = (props: WeatherWidgetProps) => {
     <Container>
       <Titles>
         <Title height={65}>Godzina</Title>
+        <Title height={49}>Prognoza</Title>
         <Title height={210}>Temperatura</Title>
         <Title height={100}>Opady</Title>
         <Title height={80}>Kierunek wiatru</Title>
@@ -37,6 +39,12 @@ export const WeatherWidget = (props: WeatherWidgetProps) => {
           data={props.data}
           renderItem={weather => (
             <Time>{formatTime(weather.time)}</Time>
+          )}
+        />
+        <WeatherRow
+          data={props.data}
+          renderItem={weather => (
+            <WeatherPrognosis state={weather.state} />
           )}
         />
         <LineCharts

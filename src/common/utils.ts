@@ -33,3 +33,9 @@ export const formatTime = (time: number): string => `${String(time).padStart(2, 
 export const randomBetweenRange = (min: number, max: number) => Math.random() * (max - min) + min;
 
 export const getFixedLocale = (value: number, places: number) => Number(value.toFixed(places)).toLocaleString();
+
+export const getRandomItem = <T>(items: T[]): T => {
+  const randomIndex = Math.floor(randomBetweenRange(0, items.length - 1));
+  console.log({ randomIndex })
+  return items[randomIndex];
+}
