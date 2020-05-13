@@ -1,54 +1,22 @@
 import React, { ReactNode, useRef } from 'react';
 import styled from 'styled-components';
 import { TriangleButton } from './TriangleButton';
-import { WEATHER_COLUMN_WIDTH } from '../common/consts';
 import ScrollContainer from 'react-indiana-drag-scroll';
+import { useScroll } from '../hooks/useScroll';
 interface TheatreProps {
   children?: ReactNode
 }
 
 export const Theatre = (props: TheatreProps) => {
   const containerRef = useRef<ScrollContainer>(null);
-
-  const handleScrollBack = () => {
-    const element = containerRef.current?.getElement()
-    const scrollLeft = element?.scrollLeft;
-
-    if (scrollLeft == null) {
-      return;
-    }
-
-    const nextScroll = scrollLeft - WEATHER_COLUMN_WIDTH;
-
-    element?.scroll({
-      left: nextScroll,
-      behavior: 'smooth'
-    });
-  }
-
-  const handleScrollNext = () => {
-    const element = containerRef.current?.getElement()
-    const scrollLeft = element?.scrollLeft;
-
-    if (scrollLeft == null) {
-      return;
-    }
-
-    const position = Math.floor(scrollLeft / WEATHER_COLUMN_WIDTH);
-    const nextScroll = position * WEATHER_COLUMN_WIDTH + WEATHER_COLUMN_WIDTH;
-
-    element?.scroll({
-      left: nextScroll,
-      behavior: 'smooth'
-    });
-  }
+  const scroll = useScroll(containerRef);
 
   return (
     <Container>
       <Wrapper ref={containerRef}>
-        <PrevButton onClick={handleScrollBack} />
+        <PrevButton onClick={scroll.back} />
         {props.children}
-        <NextButton onClick={handleScrollNext} toLeft />
+        <NextButton onClick={scroll.next} toLeft />
       </Wrapper>
     </Container>
   );
