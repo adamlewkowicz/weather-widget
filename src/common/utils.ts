@@ -36,6 +36,5 @@ export const getFixedLocale = (value: number, places: number) => Number(value.to
 
 export const getRandomItem = <T>(items: T[]): T => {
   const randomIndex = Math.floor(randomBetweenRange(0, items.length - 1));
-  console.log({ randomIndex })
   return items[randomIndex];
 }

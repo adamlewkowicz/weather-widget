@@ -1,16 +1,20 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { WEATHER_COLUMN_WIDTH } from '../common/consts';
+import { Weather } from '../types';
 
-interface WeatherRowProps<T> extends BorderColorProp {
+interface WeatherRowProps<T extends Weather> extends BorderColorProp {
   data: T[]
   renderItem: (item: T) => ReactNode
 }
 
-export const WeatherRow = <T extends object>(props: WeatherRowProps<T>) => (
+export const WeatherRow = <T extends Weather>(props: WeatherRowProps<T>) => (
   <Container>
     {props.data.map(record => (
-      <Item borderColor={props.borderColor}>
+      <Item
+        key={record.id}
+        borderColor={props.borderColor}
+      >
         {props.renderItem(record)}
       </Item>
     ))}
