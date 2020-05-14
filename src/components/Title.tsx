@@ -32,4 +32,5 @@ const Text = styled.span`
   color: #9C9C9C;
   font-size: 18px;
   text-align: center;
+  font-weight: medium;
 `

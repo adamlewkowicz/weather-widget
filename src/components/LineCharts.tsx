@@ -1,11 +1,11 @@
 import React, { ReactNode } from 'react';
 import {
-  LineChart,
+  LineChart as NativeLineChart,
   Line,
   CartesianAxis,
 } from 'recharts';
-import { WEATHER_COLUMN_WIDTH } from '../common/consts';
 import { LineChartPoint } from './LineChartPoint';
+import styled from 'styled-components';
 
 interface LineChartsProps {
   width: number
@@ -16,19 +16,15 @@ interface LineChartsProps {
 }
 
 export const LineCharts = (props: LineChartsProps) => {
-  const DATA_KEY = 'pv';
   const normalizedData = props.data.map(record => ({
     [DATA_KEY]: record
   }));
-  const margin = WEATHER_COLUMN_WIDTH / 2 - 30;
 
   return (
-    <LineChart
+    <StyledLineChart
       width={props.width}
       height={props.height ?? 150}
       data={normalizedData}
-      margin={{ top: 30, left: 25, right: 60, bottom: 30 }}
-      style={{ padding: 30 }}
       barSize={20}
     >
       <CartesianAxis x={40} y={50} width={5} height={100} fill="red" />
@@ -42,6 +38,19 @@ export const LineCharts = (props: LineChartsProps) => {
         strokeWidth={2}
         dot={LineChartPoint}
       />
-    </LineChart>
+    </StyledLineChart>
   );
 }
+
+const StyledLineChart = styled(NativeLineChart).attrs(() => ({
+  margin: {
+    top: 30,
+    bottom: 30,
+    left: 50,
+    right: 50,
+  }
+}))`
+  padding: 30px 0;
+`
+
+const DATA_KEY = 'pv';

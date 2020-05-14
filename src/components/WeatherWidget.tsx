@@ -19,7 +19,7 @@ interface WeatherWidgetProps {
 }
 
 export const WeatherWidget = (props: WeatherWidgetProps) => {
-  const chartWidth = props.data.length * WEATHER_COLUMN_WIDTH;
+  const chartWidth = props.data.length * (WEATHER_COLUMN_WIDTH + 1);
   const temperatures = props.data.map(weather => weather.temperature);
   const pressures = props.data.map(weather => weather.hPaPressure);
   
@@ -32,7 +32,7 @@ export const WeatherWidget = (props: WeatherWidgetProps) => {
         <Title height={100}>Opady</Title>
         <Title height={80}>Kierunek wiatru</Title>
         <Title height={80}>Prędkość wiatru</Title>
-        <Title height={120}>Ciśnienie</Title>
+        <Title height={130}>Ciśnienie</Title>
       </Titles>
       <Theatre>
         <WeatherRow
@@ -73,6 +73,7 @@ export const WeatherWidget = (props: WeatherWidgetProps) => {
           width={chartWidth}
           data={pressures}
           renderLabel={PressureLabel}
+          height={70}
           color="#000"
         />
         {/* <BlocksContainer>
@@ -91,7 +92,6 @@ const Container= styled.div`
   font-family: 'Source Sans Pro';
   display: flex;
   width: 1000px;
-  border: 1px solid red;
 `
 
 const BlocksContainer = styled.ul`

@@ -36,6 +36,7 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
+  border-bottom: 1px solid #EEEEEE;
 
   &:before {
     content: "";
