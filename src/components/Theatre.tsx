@@ -36,8 +36,9 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
-  border-bottom: 1px solid #EEEEEE;
-
+  border-color:  #EEEEEE;
+  border-width: 0 0 1px 1px;
+  border-style: solid;
   &:before {
     content: "";
     position: absolute;
@@ -45,7 +46,6 @@ const Container = styled.div`
     width: 100px;
     height: 100%;
   }
-
   &:after {
     content: "";
     position: absolute;
@@ -55,7 +55,6 @@ const Container = styled.div`
     height: 100%;
     background: linear-gradient(to left, #fff, transparent 100%);
   }
-  
 `
 
 const FloatingButton = styled(TriangleButton)`

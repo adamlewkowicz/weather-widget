@@ -12,7 +12,7 @@ interface LineChartsProps {
   height?: number
   data: number[]
   renderLabel?: (props: any) => ReactNode
-  color?: string
+  lineColor?: string
 }
 
 export const LineCharts = (props: LineChartsProps) => {
@@ -32,7 +32,7 @@ export const LineCharts = (props: LineChartsProps) => {
         label={props.renderLabel}
         type="linear"
         dataKey={DATA_KEY}
-        stroke={props.color}
+        stroke={props.lineColor}
         points={[{ x: 1, y: 12, value: 140 }]}
         // activeDot={{ r: 8 }}
         strokeWidth={2}

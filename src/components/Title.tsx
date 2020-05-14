@@ -6,15 +6,13 @@ interface TitleProps {
   height?: number
 }
 
-export const Title = (props: TitleProps) => {
-  return (
-    <Container height={props.height}>
-      <Text>
-        {props.children}
-      </Text>
-    </Container>
-  );
-}
+export const Title = (props: TitleProps) => (
+  <Container height={props.height}>
+    <Text>
+      {props.children}
+    </Text>
+  </Container>
+);
 
 const Container = styled.li<{
   height?: number
@@ -26,6 +24,9 @@ const Container = styled.li<{
   height: ${props => props.height ? `${props.height - 1}px` : 'auto'};
   border-bottom: 1px solid #EEEEEE;
   padding: 0 10px;
+  &:last-child {
+    border-bottom: none;
+  }
 `
 
 const Text = styled.span`

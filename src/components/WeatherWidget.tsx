@@ -1,18 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Weather } from '../types';
-import { WeatherBlock, Time } from './WeatherBlock';
-import { LineCharts } from './LineCharts';
+import { Time } from './WeatherBlock';
 import { WEATHER_COLUMN_WIDTH } from '../common/consts';
 import { Theatre } from './Theatre';
 import { WeatherRow } from './WeatherRow';
 import { Rainfall } from './Rainfall';
-import { TemperatureLabel } from './TemperatureLabel';
-import { PressureLabel } from './PressureLabel';
-import { WindDetails } from './WindDetails';
 import { formatTime } from '../common/utils';
 import { Title } from './Title';
 import { WeatherPrognosis } from './WeatherState';
+import { TemperatureChart } from './TemperatureChart';
+import { PressureChart } from './PressureChart';
+import { WindDetails } from './WindDetails';
 
 interface WeatherWidgetProps {
   data: Weather[]
@@ -27,7 +26,7 @@ export const WeatherWidget = (props: WeatherWidgetProps) => {
     <Container>
       <Titles>
         <Title height={65}>Godzina</Title>
-        <Title height={49}>Prognoza</Title>
+        <Title height={50}>Prognoza</Title>
         <Title height={210}>Temperatura</Title>
         <Title height={100}>Opady</Title>
         <Title height={80}>Kierunek wiatru</Title>
@@ -47,11 +46,9 @@ export const WeatherWidget = (props: WeatherWidgetProps) => {
             <WeatherPrognosis state={weather.state} />
           )}
         />
-        <LineCharts
-          width={chartWidth}
+        <TemperatureChart
           data={temperatures}
-          renderLabel={TemperatureLabel}
-          color="#FFE05E"
+          width={chartWidth}
         />
         <WeatherRow
           data={props.data}
@@ -69,20 +66,10 @@ export const WeatherWidget = (props: WeatherWidgetProps) => {
             />
           )}
         />
-        <LineCharts
-          width={chartWidth}
+        <PressureChart
           data={pressures}
-          renderLabel={PressureLabel}
-          height={70}
-          color="#000"
+          width={chartWidth}
         />
-        {/* <BlocksContainer>
-          {props.data.map(weather => (
-            <WeatherBlock
-              weather={weather}
-            />
-          ))}
-        </BlocksContainer> */}
       </Theatre>
     </Container>
   );
@@ -92,11 +79,6 @@ const Container= styled.div`
   font-family: 'Source Sans Pro';
   display: flex;
   width: 1000px;
-`
-
-const BlocksContainer = styled.ul`
-  display: flex;
-  flex-direction: row;
 `
 
 const Titles = styled.ul`
