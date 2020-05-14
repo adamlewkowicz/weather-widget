@@ -17,7 +17,7 @@ interface WeatherWidgetProps {
   data: Weather[]
 }
 
-export const WeatherWidget = (props: WeatherWidgetProps) => {
+export const WeatherWidget = React.memo((props: WeatherWidgetProps) => {
   const chartWidth = props.data.length * (WEATHER_COLUMN_WIDTH + 1);
   const temperatures = props.data.map(weather => weather.temperature);
   const pressures = props.data.map(weather => weather.hPaPressure);
@@ -73,7 +73,7 @@ export const WeatherWidget = (props: WeatherWidgetProps) => {
       </Theatre>
     </Container>
   );
-}
+});
 
 const Container= styled.div`
   font-family: 'Source Sans Pro';

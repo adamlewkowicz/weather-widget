@@ -23,7 +23,7 @@ const Container = styled.li<{
   align-items: center;
   height: ${props => props.height ? `${props.height - 1}px` : 'auto'};
   border-bottom: 1px solid #EEEEEE;
-  padding: 0 10px;
+  padding: 0 15px;
   &:last-child {
     border-bottom: none;
   }
@@ -31,7 +31,6 @@ const Container = styled.li<{
 
 const Text = styled.span`
   color: #9C9C9C;
-  font-size: 18px;
+  font-size: 17px;
   text-align: center;
-  font-weight: medium;
 `
