@@ -2,23 +2,21 @@ import React, { ButtonHTMLAttributes } from 'react';
 import styled from 'styled-components';
 import triangleIcon from '../assets/triangle.svg';
 
-interface TriangleButtonProps extends ButtonHTMLAttributes<any> {
-  toLeft?: boolean
-}
+interface TriangleButtonProps extends ButtonHTMLAttributes<any>, DirectionProp {}
 
 export const TriangleButton = (props: TriangleButtonProps) => {
   return (
-    <Container {...props} left={props.toLeft}>
-      <Icon src={triangleIcon} left={props.toLeft} />
+    <Container {...props}>
+      <Icon src={triangleIcon} direction={props.direction} />
     </Container>
   );
 }
 
-const Container = styled.button<{ left?: boolean }>`
+const Container = styled.button`
   background-color: rgba(1,1,1,.15);
   border-radius: 50%;
-  width: 80px;
-  height: 80px;
+  width: 95px;
+  height: 95px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,10 +28,17 @@ const Container = styled.button<{ left?: boolean }>`
   }
 `
 
-const Icon = styled.img<{ left?: boolean }>`
-  height: 24px;
-  transform: ${props => props.left ?
-    'rotate(270deg) translateY(-50%)' :
-    'rotate(90deg) translateY(-50%)'
+const Icon = styled.img<DirectionProp>`
+  height: 20px;
+  transform: ${props => props.direction === 'right' ?
+    'rotate(90deg) translateY(90%)' :
+    'rotate(270deg) translateY(90%)'
   };
+  transform:
+    rotate(${props => props.direction === 'right' ? '90' : '270'}deg)
+    translateY(90%);
 `
+
+interface DirectionProp {
+  direction: 'left' | 'right'
+}

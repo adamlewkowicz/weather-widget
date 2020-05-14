@@ -4,11 +4,6 @@ import { WeatherWidget } from './components/WeatherWidget';
 import { randomBetweenRange, getRandomItem } from './common/utils';
 import { Weather } from './types';
 
-const GlobalStyle = createGlobalStyle`
-  font-family: 'Source Sans Pro';
-  box-sizing: border-box;
-`
-
 const weatherData = Array
   .from({ length: 32 })
   .map((_, index): Weather => ({
@@ -31,5 +26,17 @@ export const App = () => (
 );
 
 const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+`
 
+const GlobalStyle = createGlobalStyle`
+  font-family: 'Source Sans Pro';
+  box-sizing: border-box;
+
+  body { 
+    margin: 0;
+  }
 `

@@ -61,6 +61,7 @@ export const WeatherWidget = (props: WeatherWidgetProps) => {
         />
         <WeatherRow
           data={props.data}
+          borderColor="#fff"
           renderItem={weather => (
             <WindDetails
               velocity={weather.windVelocity}
@@ -89,6 +90,8 @@ export const WeatherWidget = (props: WeatherWidgetProps) => {
 const Container= styled.div`
   font-family: 'Source Sans Pro';
   display: flex;
+  width: 1000px;
+  border: 1px solid red;
 `
 
 const BlocksContainer = styled.ul`

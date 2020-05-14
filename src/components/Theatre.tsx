@@ -14,55 +14,60 @@ export const Theatre = (props: TheatreProps) => {
 
   return (
     <Container>
-      <Wrapper ref={containerRef}>
-        <PrevButton onClick={scroll.back} />
+      <PrevButton
+        onClick={scroll.back}
+        direction="left"
+      />
+      <Content ref={containerRef}>
         {props.children}
-        <NextButton onClick={scroll.next} toLeft />
-      </Wrapper>
+      </Content>
+      <NextButton
+        onClick={scroll.next}
+        direction="right" 
+      />
     </Container>
   );
 }
 
+const Content = styled(ScrollContainer)``
+
 const Container = styled.div`
   position: relative;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
-`
-
-const Wrapper = styled(ScrollContainer)`
-  position: relative;
 
   &:before {
     content: "";
-    position: fixed;
-    width: 100%;
+    position: absolute;
+    background: linear-gradient(to right, rgba(1,1,1,.08), transparent 50%);
+    width: 100px;
     height: 100%;
-    background:
-    linear-gradient(to right, rgba(1,1,1,.1), transparent 2.5%);
   }
 
   &:after {
     content: "";
-    position: fixed;
+    position: absolute;
     right: 0;
     top: 0;
-    width: 100%;
+    width: 100px;
     height: 100%;
-    background:
-    linear-gradient(to left, #fff, transparent 10%);
+    background: linear-gradient(to left, #fff, transparent 100%);
   }
+  
 `
 
 const FloatingButton = styled(TriangleButton)`
-  position: fixed;
+  position: absolute;
   top: 50%;
   z-index: 10;
 `
 
 const PrevButton = styled(FloatingButton)`
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(-50%);
 `
 
 const NextButton = styled(FloatingButton)`
   right: 0;
-  transform: translateX(50%);
+  transform: translateX(50%) translateY(-50%);
 `

@@ -6,6 +6,7 @@ interface WeatherRowProps<T> {
   data: T[]
   title?: string
   renderItem: (item: T) => ReactNode
+  borderColor?: string
 }
 
 export const WeatherRow = <T extends object>(props: WeatherRowProps<T>) => {
@@ -13,7 +14,7 @@ export const WeatherRow = <T extends object>(props: WeatherRowProps<T>) => {
     <Container>
       {props.title}
       {props.data.map(record => (
-        <Item>
+        <Item borderColor={props.borderColor}>
           {props.renderItem(record)}
         </Item>
       ))}
@@ -25,10 +26,10 @@ const Container = styled.div`
   display: flex;
 `
 
-const Item = styled.div`
+const Item = styled.div<{ borderColor?: string }>`
   min-width: ${WEATHER_COLUMN_WIDTH}px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-right: 1px solid #EEEEEE;
+  border-right: 1px solid ${props => props.borderColor ?? '#EEEEEE'};
 `

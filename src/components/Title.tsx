@@ -23,8 +23,9 @@ const Container = styled.li<{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: ${props => props.height}px;
+  height: ${props => props.height ? `${props.height - 1}px` : 'auto'};
   border-bottom: 1px solid #EEEEEE;
+  padding: 0 10px;
 `
 
 const Text = styled.span`
