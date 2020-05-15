@@ -1,7 +1,7 @@
 
 export interface Weather {
   id: number
-  time: number
+  hour: number
   temperature: number
   rainfallQuantity: number
   windDirection: number

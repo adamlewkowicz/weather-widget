@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Weather } from '../types';
-import { Time } from './WeatherBlock';
 import { WEATHER_COLUMN_WIDTH } from '../common/consts';
 import { Theatre } from './Theatre';
 import { WeatherRow } from './WeatherRow';
@@ -12,8 +11,9 @@ import { WeatherPrognosis } from './WeatherState';
 import { TemperatureChart } from './TemperatureChart';
 import { PressureChart } from './PressureChart';
 import { WindDetails } from './WindDetails';
+import { DayTitle } from './DayTitle';
 
-interface WeatherWidgetProps {
+interface WeatherWidgetProps extends WidthProp {
   data: Weather[]
 }
 
@@ -23,9 +23,10 @@ export const WeatherWidget = React.memo((props: WeatherWidgetProps) => {
   const pressures = props.data.map(weather => weather.hPaPressure);
   
   return (
-    <Container>
+    <Container width={props.width}>
       <Titles>
-        <Title height={65}>Godzina</Title>
+        <Title height={25}>Dzień</Title>
+        <Title height={66}>Godzina</Title>
         <Title height={50}>Prognoza</Title>
         <Title height={210}>Temperatura</Title>
         <Title height={100}>Opady</Title>
@@ -34,10 +35,16 @@ export const WeatherWidget = React.memo((props: WeatherWidgetProps) => {
         <Title height={130}>Ciśnienie</Title>
       </Titles>
       <Theatre>
+        <WeatherRow 
+          data={props.data}
+          renderItem={weather => (
+            <DayTitle hour={weather.hour} />
+          )}
+        />
         <WeatherRow
           data={props.data}
           renderItem={weather => (
-            <Time>{formatTime(weather.time)}</Time>
+            <Time>{formatTime(weather.hour)}</Time>
           )}
         />
         <WeatherRow
@@ -75,13 +82,22 @@ export const WeatherWidget = React.memo((props: WeatherWidgetProps) => {
   );
 });
 
-const Container= styled.div`
-  font-family: 'Source Sans Pro';
+const Container= styled.div<WidthProp>`
   display: flex;
-  width: 1000px;
+  width: ${props => props.width}px;
 `
 
 const Titles = styled.ul`
   padding: 0;
   margin: 0;
 `
+
+const Time = styled.p`
+  font-size: 24px;
+  font-weight: bold;
+  margin: 15px 0 20px 0;
+`
+
+interface WidthProp {
+  width: number
+}

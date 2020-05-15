@@ -5,7 +5,7 @@ export const weatherData = Array
   .from({ length: 32 })
   .map((_, index): Weather => ({
     id: index,
-    time: index % 24 + 1,
+    hour: (index + 7) % 24,
     hPaPressure: randomBetweenRange(1108, 1120),
     rainfallQuantity: randomBetweenRange(0.1, 0.8),
     windDirection: randomBetweenRange(0, 340),

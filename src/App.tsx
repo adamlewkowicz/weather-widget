@@ -8,6 +8,7 @@ export const App = () => (
     <GlobalStyle />
     <WeatherWidget 
       data={weatherData}
+      width={1000}
     />
   </Container>
 );
@@ -20,10 +21,9 @@ const Container = styled.main`
 `
 
 const GlobalStyle = createGlobalStyle`
-  font-family: 'Source Sans Pro';
-  box-sizing: border-box;
-
   body { 
     margin: 0;
+    font-family: 'Source Sans Pro';
+    box-sizing: border-box;
   }
 `
