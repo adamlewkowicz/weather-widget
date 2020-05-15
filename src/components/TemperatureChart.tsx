@@ -1,5 +1,5 @@
 import React from 'react';
-import { LineCharts } from './LineCharts';
+import { LineChart } from './LineChart';
 import { TemperatureLabel } from './TemperatureLabel';
 
 interface TemperatureChartProps {
@@ -8,7 +8,7 @@ interface TemperatureChartProps {
 }
 
 export const TemperatureChart = (props: TemperatureChartProps) =>  (
-  <LineCharts
+  <LineChart
     width={props.width}
     data={props.data}
     renderLabel={TemperatureLabel}

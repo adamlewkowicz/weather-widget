@@ -1,5 +1,5 @@
 import React from 'react';
-import { LineCharts } from './LineCharts';
+import { LineChart } from './LineChart';
 import { PressureLabel } from './PressureLabel';
 
 interface PressureChartProps {
@@ -8,7 +8,7 @@ interface PressureChartProps {
 }
 
 export const PressureChart = (props: PressureChartProps) =>  (
-  <LineCharts
+  <LineChart
     width={props.width}
     data={props.data}
     renderLabel={PressureLabel}

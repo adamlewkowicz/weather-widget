@@ -7,7 +7,7 @@ import {
 import { LineChartPoint } from './LineChartPoint';
 import styled from 'styled-components';
 
-interface LineChartsProps {
+interface LineChartProps {
   width: number
   height?: number
   data: number[]
@@ -15,7 +15,7 @@ interface LineChartsProps {
   lineColor?: string
 }
 
-export const LineCharts = (props: LineChartsProps) => {
+export const LineChart = (props: LineChartProps) => {
   const normalizedData = props.data.map(record => ({
     [DATA_KEY]: record
   }));
@@ -25,7 +25,6 @@ export const LineCharts = (props: LineChartsProps) => {
       width={props.width}
       height={props.height ?? 150}
       data={normalizedData}
-      barSize={20}
     >
       <CartesianAxis x={40} y={50} width={5} height={100} fill="red" />
       <Line

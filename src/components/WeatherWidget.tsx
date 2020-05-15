@@ -50,7 +50,7 @@ export const WeatherWidget = React.memo((props: WeatherWidgetProps) => {
         <WeatherRow
           data={props.data}
           renderItem={weather => (
-            <WeatherPrognosis state={weather.state} />
+            <WeatherPrognosis weatherState={weather.state} />
           )}
         />
         <TemperatureChart

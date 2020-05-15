@@ -30,10 +30,6 @@ const Container = styled.button`
 
 const Icon = styled.img<DirectionProp>`
   height: 20px;
-  transform: ${props => props.direction === 'right' ?
-    'rotate(90deg) translateY(90%)' :
-    'rotate(270deg) translateY(90%)'
-  };
   transform:
     rotate(${props => props.direction === 'right' ? '90' : '270'}deg)
     translateY(90%);

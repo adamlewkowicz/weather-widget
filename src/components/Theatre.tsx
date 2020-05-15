@@ -18,9 +18,9 @@ export const Theatre = (props: TheatreProps) => {
         onClick={scroll.back}
         direction="left"
       />
-      <Content ref={containerRef}>
+      <ScrollContainer ref={containerRef}>
         {props.children}
-      </Content>
+      </ScrollContainer>
       <NextButton
         onClick={scroll.next}
         direction="right" 
@@ -28,8 +28,6 @@ export const Theatre = (props: TheatreProps) => {
     </Container>
   );
 }
-
-const Content = styled(ScrollContainer)``
 
 const Container = styled.div`
   position: relative;
