@@ -4,13 +4,14 @@ import triangleIcon from '../assets/triangle.svg';
 
 interface TriangleButtonProps extends ButtonHTMLAttributes<any>, DirectionProp {}
 
-export const TriangleButton = (props: TriangleButtonProps) => {
-  return (
-    <Container {...props}>
-      <Icon src={triangleIcon} direction={props.direction} />
-    </Container>
-  );
-}
+export const TriangleButton = (props: TriangleButtonProps) => (
+  <Container {...props}>
+    <Icon
+      src={triangleIcon}
+      direction={props.direction}
+    />
+  </Container>
+);
 
 const Container = styled.button`
   background-color: rgba(1,1,1,.15);

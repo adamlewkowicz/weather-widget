@@ -2,12 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { Weather } from '../types';
 import { WEATHER_COLUMN_WIDTH } from '../common/consts';
-import { Theatre } from './Theatre';
+import { Scene } from './Scene';
 import { WeatherRow } from './WeatherRow';
 import { Rainfall } from './Rainfall';
 import { formatTime } from '../common/utils';
 import { Title } from './Title';
-import { WeatherPrognosis } from './WeatherState';
+import { WeatherPrognosis } from './WeatherPrognosis';
 import { TemperatureChart } from './TemperatureChart';
 import { PressureChart } from './PressureChart';
 import { WindDetails } from './WindDetails';
@@ -19,8 +19,8 @@ interface WeatherWidgetProps extends WidthProp {
 
 export const WeatherWidget = React.memo((props: WeatherWidgetProps) => {
   const chartWidth = props.data.length * WEATHER_COLUMN_WIDTH;
-  const temperatures = props.data.map(weather => weather.temperature);
-  const pressures = props.data.map(weather => weather.hPaPressure);
+  const temperatureData = props.data.map(weather => weather.temperature);
+  const pressureData = props.data.map(weather => weather.hPaPressure);
   
   return (
     <Container width={props.width}>
@@ -34,7 +34,7 @@ export const WeatherWidget = React.memo((props: WeatherWidgetProps) => {
         <Title height={80}>Prędkość wiatru</Title>
         <Title height={130}>Ciśnienie</Title>
       </Titles>
-      <Theatre>
+      <Scene>
         <WeatherRow 
           data={props.data}
           renderItem={weather => (
@@ -54,7 +54,7 @@ export const WeatherWidget = React.memo((props: WeatherWidgetProps) => {
           )}
         />
         <TemperatureChart
-          data={temperatures}
+          data={temperatureData}
           width={chartWidth}
         />
         <WeatherRow
@@ -74,10 +74,10 @@ export const WeatherWidget = React.memo((props: WeatherWidgetProps) => {
           )}
         />
         <PressureChart
-          data={pressures}
+          data={pressureData}
           width={chartWidth}
         />
-      </Theatre>
+      </Scene>
     </Container>
   );
 });

@@ -5,11 +5,11 @@ import ScrollContainer from 'react-indiana-drag-scroll';
 import { useColumnScroll } from '../hooks/useColumnScroll';
 import { WEATHER_COLUMN_WIDTH } from '../common/consts';
 
-interface TheatreProps {
+interface SceneProps {
   children?: ReactNode
 }
 
-export const Theatre = (props: TheatreProps) => {
+export const Scene = (props: SceneProps) => {
   const containerRef = useRef<ScrollContainer>(null);
   const scroll = useColumnScroll(containerRef, { columnWidth: WEATHER_COLUMN_WIDTH });
 

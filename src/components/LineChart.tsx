@@ -2,7 +2,6 @@ import React, { ReactNode } from 'react';
 import {
   LineChart as NativeLineChart,
   Line,
-  CartesianAxis,
 } from 'recharts';
 import { LineChartPoint } from './LineChartPoint';
 import styled from 'styled-components';
