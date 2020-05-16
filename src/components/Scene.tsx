@@ -4,6 +4,7 @@ import { TriangleButton } from './TriangleButton';
 import ScrollContainer from 'react-indiana-drag-scroll';
 import { useColumnScroll } from '../hooks/useColumnScroll';
 import { WEATHER_COLUMN_WIDTH } from '../common/consts';
+import { theme } from '../common/theme';
 
 interface SceneProps {
   children?: ReactNode
@@ -38,7 +39,7 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
-  border-color:  #EEEEEE;
+  border-color: ${theme.colors.grayTertiary};
   border-width: 0 0 1px 1px;
   border-style: solid;
   &:before {
@@ -55,7 +56,7 @@ const Container = styled.div`
     top: 0;
     width: 100px;
     height: 100%;
-    background: linear-gradient(to left, #fff, transparent 100%);
+    background: linear-gradient(to left, ${theme.colors.light}, transparent 100%);
   }
 `
 

@@ -7,6 +7,7 @@ import {
 import { LineChartPoint } from './LineChartPoint';
 import styled from 'styled-components';
 import { WEATHER_COLUMN_WIDTH } from '../common/consts';
+import { theme } from '../common/theme';
 
 interface LineChartProps {
   width: number
@@ -50,7 +51,7 @@ const StyledLineChart = styled(NativeLineChart).attrs(() => ({
     90deg,
     transparent 0,
     transparent ${WEATHER_COLUMN_WIDTH - 1}px,
-    #EEEEEE ${WEATHER_COLUMN_WIDTH - 1}px,
-    #EEEEEE ${WEATHER_COLUMN_WIDTH}px
+    ${theme.colors.grayTertiary} ${WEATHER_COLUMN_WIDTH - 1}px,
+    ${theme.colors.grayTertiary} ${WEATHER_COLUMN_WIDTH}px
   );
 `

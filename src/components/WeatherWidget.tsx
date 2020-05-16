@@ -12,6 +12,7 @@ import { TemperatureChart } from './TemperatureChart';
 import { PressureChart } from './PressureChart';
 import { WindDetails } from './WindDetails';
 import { DayTitle } from './DayTitle';
+import { theme } from '../common/theme';
 
 interface WeatherWidgetProps extends WidthProp {
   data: Weather[]
@@ -65,7 +66,7 @@ export const WeatherWidget = React.memo((props: WeatherWidgetProps) => {
         />
         <WeatherRow
           data={props.data}
-          borderColor="#fff"
+          borderColor={theme.colors.light}
           renderItem={weather => (
             <WindDetails
               velocity={weather.windVelocity}

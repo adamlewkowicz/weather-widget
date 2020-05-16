@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
+import { theme } from '../common/theme';
 
 interface TitleProps {
   children?: ReactNode
@@ -22,7 +23,7 @@ const Container = styled.li<{
   justify-content: center;
   align-items: center;
   height: ${props => props.height ? `${props.height - 1}px` : 'auto'};
-  border-bottom: 1px solid #EEEEEE;
+  border-bottom: 1px solid ${theme.colors.grayTertiary};
   padding: 0 15px;
   &:last-child {
     border-bottom: none;
@@ -30,7 +31,7 @@ const Container = styled.li<{
 `
 
 const Text = styled.span`
-  color: #707070;
+  color: ${theme.colors.grayPrimary};
   font-size: 17px;
   text-align: center;
 `

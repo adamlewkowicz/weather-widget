@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { getFixedLocale } from '../common/utils';
+import { theme } from '../common/theme';
 
 interface RainfallProps {
   value: number
@@ -35,6 +36,6 @@ const Quantity = styled.p`
 `
 
 const Chart = styled.div`
-  background-color: #33CCFF;
+  background-color: ${theme.colors.blueSecondary};
   width: 100%;
 `

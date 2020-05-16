@@ -2,6 +2,7 @@ import React from 'react';
 import { LineChart } from './LineChart';
 import { PressureLabel } from './PressureLabel';
 import { HPA_MIN_VALUE } from '../common/consts';
+import { theme } from '../common/theme';
 
 interface PressureChartProps {
   data: number[]
@@ -16,7 +17,7 @@ export const PressureChart = (props: PressureChartProps) => {
       width={props.width}
       data={normalizedPressureData}
       renderLabel={PressureLabel}
-      lineColor="#000"
+      lineColor={theme.colors.dark}
       height={110}
     />
   );

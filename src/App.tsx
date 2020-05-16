@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { WeatherWidget } from './components/WeatherWidget';
 import { weatherData } from './common/data';
+import { theme } from './common/theme';
 
 export const App = () => (
   <Container>
@@ -27,13 +28,13 @@ const Container = styled.main`
 
 const Repository = styled.a`
   margin: 15px 0;
-  color: #0366d6;
+  color: ${theme.colors.bluePrimary};
 `
 
 const GlobalStyle = createGlobalStyle`
   body { 
     margin: 0;
-    font-family: 'Source Sans Pro';
+    font-family: ${theme.fontFamily};
     box-sizing: border-box;
   }
 `

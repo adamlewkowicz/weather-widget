@@ -1,6 +1,7 @@
 import React from 'react';
 import { LineChart } from './LineChart';
 import { TemperatureLabel } from './TemperatureLabel';
+import { theme } from '../common/theme';
 
 interface TemperatureChartProps {
   data: number[]
@@ -12,6 +13,6 @@ export const TemperatureChart = (props: TemperatureChartProps) =>  (
     width={props.width}
     data={props.data}
     renderLabel={TemperatureLabel}
-    lineColor="#FFE05E"
+    lineColor={theme.colors.yellow}
   />
 );

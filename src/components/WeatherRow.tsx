@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { WEATHER_COLUMN_WIDTH } from '../common/consts';
 import { Weather } from '../types';
+import { theme } from '../common/theme';
 
 interface WeatherRowProps<T extends Weather> extends BorderColorProp {
   data: T[]
@@ -33,7 +34,7 @@ const Item = styled.li<BorderColorProp>`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-right: 1px solid ${props => props.borderColor ?? '#EEEEEE'};
+  border-right: 1px solid ${props => props.borderColor ?? theme.colors.grayTertiary};
   list-style-type: none;
 `
 

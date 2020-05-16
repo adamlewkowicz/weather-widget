@@ -1,4 +1,5 @@
 import React from 'react';
+import { theme } from '../common/theme';
 
 interface LineChartPointProps {
   cx: number
@@ -12,6 +13,6 @@ export const LineChartPoint = (props: LineChartPointProps) => (
     r={7}
     stroke="black"
     strokeWidth={2}
-    fill="#fff"
+    fill={theme.colors.light}
   />
 );

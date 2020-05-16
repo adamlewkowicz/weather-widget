@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import arrowIcon from '../assets/arrow.svg';
 import { getDirectionTitle, getWindVelocityTitle } from '../common/utils';
+import { theme } from '../common/theme';
 
 interface WindDetailsProps {
   velocity: number
@@ -27,7 +28,7 @@ export const WindDetails = (props: WindDetailsProps) => {
 }
 
 const Container = styled.div`
-  background-color: #F0F1F1;
+  background-color: ${theme.colors.lightSecondary};
   display: flex;
   flex-direction: column;
   align-items: center;
