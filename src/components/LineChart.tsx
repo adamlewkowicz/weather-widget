@@ -51,9 +51,9 @@ const StyledLineChart = styled(NativeLineChart).attrs(() => ({
   background: repeating-linear-gradient( 
     90deg,
     transparent 0,
-    transparent ${WEATHER_COLUMN_WIDTH}px,
-    #EEEEEE ${WEATHER_COLUMN_WIDTH}px,
-    #EEEEEE ${WEATHER_COLUMN_WIDTH + 1}px
+    transparent ${WEATHER_COLUMN_WIDTH - 1}px,
+    #EEEEEE ${WEATHER_COLUMN_WIDTH - 1}px,
+    #EEEEEE ${WEATHER_COLUMN_WIDTH}px
   );
 `
 

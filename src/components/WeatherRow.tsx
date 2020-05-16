@@ -29,7 +29,7 @@ const Container = styled.ul`
 `
 
 const Item = styled.li<BorderColorProp>`
-  min-width: ${WEATHER_COLUMN_WIDTH}px;
+  min-width: ${WEATHER_COLUMN_WIDTH - 1}px;
   display: flex;
   align-items: center;
   justify-content: center;

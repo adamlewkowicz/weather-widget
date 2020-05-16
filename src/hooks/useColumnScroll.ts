@@ -5,34 +5,45 @@ export const useColumnScroll = (
   options: { columnWidth: number }
 ) => {
 
-  const handleScrollBack = () => {
+  const getScrollPosition = (): number | null => {
     const element = ref.current?.getElement();
     const scrollLeft = element?.scrollLeft;
 
     if (scrollLeft == null) {
-      return;
+      return null;
     }
 
-    const nextScroll = scrollLeft - options.columnWidth;
+    const position = Math.floor(scrollLeft / options.columnWidth);
+    const nextScroll = position * options.columnWidth;
 
-    element?.scroll({
+    return nextScroll;
+  }
+
+  const handleScrollBack = () => {
+    const scrollPosition = getScrollPosition();
+
+    if (!scrollPosition) {
+      return;
+    }
+    
+    const nextScroll = scrollPosition - options.columnWidth;
+
+    ref.current?.getElement().scroll({
       left: nextScroll,
       behavior: 'smooth'
     });
   }
 
   const handleScrollNext = () => {
-    const element = ref.current?.getElement();
-    const scrollLeft = element?.scrollLeft;
+    const scrollPosition = getScrollPosition();
 
-    if (scrollLeft == null) {
+    if (!scrollPosition) {
       return;
     }
 
-    const position = Math.floor(scrollLeft / options.columnWidth);
-    const nextScroll = position * options.columnWidth + options.columnWidth;
+    const nextScroll = scrollPosition + options.columnWidth;
 
-    element?.scroll({
+    ref.current?.getElement().scroll({
       left: nextScroll,
       behavior: 'smooth'
     });

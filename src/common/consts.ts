@@ -1,2 +1,2 @@
 
-export const WEATHER_COLUMN_WIDTH = 100;
+export const WEATHER_COLUMN_WIDTH = 101;

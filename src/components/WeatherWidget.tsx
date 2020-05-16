@@ -18,7 +18,7 @@ interface WeatherWidgetProps extends WidthProp {
 }
 
 export const WeatherWidget = React.memo((props: WeatherWidgetProps) => {
-  const chartWidth = props.data.length * (WEATHER_COLUMN_WIDTH + 1);
+  const chartWidth = props.data.length * WEATHER_COLUMN_WIDTH;
   const temperatures = props.data.map(weather => weather.temperature);
   const pressures = props.data.map(weather => weather.hPaPressure);
   
