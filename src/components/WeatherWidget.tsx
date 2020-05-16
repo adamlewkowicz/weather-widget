@@ -27,7 +27,7 @@ export const WeatherWidget = React.memo((props: WeatherWidgetProps) => {
       <Titles>
         <Title height={25}>Dzień</Title>
         <Title height={66}>Godzina</Title>
-        <Title height={50}>Prognoza</Title>
+        <Title height={45}>Prognoza</Title>
         <Title height={210}>Temperatura</Title>
         <Title height={100}>Opady</Title>
         <Title height={80}>Kierunek wiatru</Title>
