@@ -10,4 +10,4 @@ Widget wyświetlający dane pogodowe
 
 ## Instalacja 💿
 1) Pobierz repozytorium
-2) Zainstaluj zależności w folderze z repozytorium `npm i`
+2) Zainstaluj zależności w folderze z repozytorium komendą `npm i`
