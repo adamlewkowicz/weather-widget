@@ -1,4 +1,5 @@
 import React from 'react';
+import { getPressureText } from '../common/utils';
 
 interface PressureLabelProps {
   x: number
@@ -12,8 +13,9 @@ export const PressureLabel = (props: PressureLabelProps) => (
     y={props.y}
     dy={-16}
     fontSize={16}
+    fontWeight="SemiBold"
     textAnchor="middle"
   >
-    {props.value.toFixed(0)} hPa
+    {getPressureText(props.value)}
   </text>
 );

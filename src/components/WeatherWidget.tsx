@@ -32,7 +32,7 @@ export const WeatherWidget = React.memo((props: WeatherWidgetProps) => {
         <Title height={100}>Opady</Title>
         <Title height={80}>Kierunek wiatru</Title>
         <Title height={80}>Prędkość wiatru</Title>
-        <Title height={130}>Ciśnienie</Title>
+        <Title height={170}>Ciśnienie</Title>
       </Titles>
       <Scene>
         <WeatherRow 

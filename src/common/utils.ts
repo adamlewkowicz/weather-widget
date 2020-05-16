@@ -1,3 +1,4 @@
+import { HPA_MIN_VALUE } from './consts';
 
 export const getDirectionTitle = (degrees: number): string => {
   const NORTH = 0;
@@ -22,8 +23,7 @@ export const getDirectionTitle = (degrees: number): string => {
 export const getWindVelocityTitle = (velocity: number): string => {
   const title =
     velocity < 18 ? 'Słaby' :
-    velocity < 27 ? 'Umiarkowany' :
-    'Silny';
+    velocity < 27 ? 'Umiarkowany' : 'Silny';
 
   return title;
 }
@@ -33,6 +33,8 @@ export const formatTime = (time: number): string => `${String(time).padStart(2, 
 export const randomBetweenRange = (min: number, max: number) => Math.random() * (max - min) + min;
 
 export const getFixedLocale = (value: number, places: number) => Number(value.toFixed(places)).toLocaleString();
+
+export const getPressureText = (value: number) => `${(value + HPA_MIN_VALUE).toFixed(0)} hPa`;
 
 export const getRandomItem = <T>(items: T[]): T => {
   const randomIndex = Math.floor(randomBetweenRange(0, items.length - 1));

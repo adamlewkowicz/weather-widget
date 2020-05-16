@@ -30,7 +30,7 @@ const Container = styled.li<{
 `
 
 const Text = styled.span`
-  color: #9C9C9C;
+  color: #707070;
   font-size: 17px;
   text-align: center;
 `

@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import {
   LineChart as NativeLineChart,
   Line,
+  XAxis,
 } from 'recharts';
 import { LineChartPoint } from './LineChartPoint';
 import styled from 'styled-components';
@@ -16,9 +17,7 @@ interface LineChartProps {
 }
 
 export const LineChart = (props: LineChartProps) => {
-  const normalizedData = props.data.map(record => ({
-    [DATA_KEY]: record
-  }));
+  const normalizedData = props.data.map(value => ({ value }));
 
   return (
     <StyledLineChart
@@ -29,7 +28,7 @@ export const LineChart = (props: LineChartProps) => {
       <Line
         label={props.renderLabel}
         type="linear"
-        dataKey={DATA_KEY}
+        dataKey="value"
         stroke={props.lineColor}
         strokeWidth={2}
         dot={LineChartPoint}
@@ -55,5 +54,3 @@ const StyledLineChart = styled(NativeLineChart).attrs(() => ({
     #EEEEEE ${WEATHER_COLUMN_WIDTH}px
   );
 `
-
-const DATA_KEY = 'pv';
