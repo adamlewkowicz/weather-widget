@@ -9,16 +9,19 @@ interface WindDetailsProps {
 }
 
 export const WindDetails = (props: WindDetailsProps) => {
-  const { direction } = props;
-  const directionTitle = getDirectionTitle(props.direction);
-  const velocityTitle = getWindVelocityTitle(props.velocity);
+  const { direction, velocity } = props;
+  const directionTitle = getDirectionTitle(direction);
+  const velocityTitle = getWindVelocityTitle(velocity);
 
   return (
     <Container>
-      <Arrow src={arrowIcon} direction={direction} />
+      <Arrow
+        src={arrowIcon}
+        direction={direction}
+      />
       <Direction>{directionTitle}</Direction>
       <VelocityTitle>{velocityTitle}</VelocityTitle>
-      <Velocity>{props.velocity.toFixed(0)} km/h</Velocity>
+      <Velocity>{velocity.toFixed(0)} km/h</Velocity>
     </Container>
   );
 }
