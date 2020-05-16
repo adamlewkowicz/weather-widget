@@ -4,6 +4,7 @@ import { TriangleButton } from './TriangleButton';
 import ScrollContainer from 'react-indiana-drag-scroll';
 import { useColumnScroll } from '../hooks/useColumnScroll';
 import { WEATHER_COLUMN_WIDTH } from '../common/consts';
+
 interface TheatreProps {
   children?: ReactNode
 }
@@ -18,7 +19,10 @@ export const Theatre = (props: TheatreProps) => {
         onClick={scroll.back}
         direction="left"
       />
-      <ScrollContainer ref={containerRef}>
+      <ScrollContainer
+        ref={containerRef}
+        hideScrollbars={false}
+      >
         {props.children}
       </ScrollContainer>
       <NextButton

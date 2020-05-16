@@ -5,12 +5,12 @@ export const useColumnScroll = (
   options: { columnWidth: number }
 ) => {
 
-  const getScrollPosition = (): number | null => {
+  const getScrollPosition = (): number => {
     const element = ref.current?.getElement();
     const scrollLeft = element?.scrollLeft;
 
     if (scrollLeft == null) {
-      return null;
+      return 0;
     }
 
     const position = Math.floor(scrollLeft / options.columnWidth);
@@ -20,13 +20,7 @@ export const useColumnScroll = (
   }
 
   const handleScrollBack = () => {
-    const scrollPosition = getScrollPosition();
-
-    if (!scrollPosition) {
-      return;
-    }
-    
-    const nextScroll = scrollPosition - options.columnWidth;
+    const nextScroll = getScrollPosition() - options.columnWidth;
 
     ref.current?.getElement().scroll({
       left: nextScroll,
@@ -35,13 +29,7 @@ export const useColumnScroll = (
   }
 
   const handleScrollNext = () => {
-    const scrollPosition = getScrollPosition();
-
-    if (!scrollPosition) {
-      return;
-    }
-
-    const nextScroll = scrollPosition + options.columnWidth;
+    const nextScroll = getScrollPosition() + options.columnWidth;
 
     ref.current?.getElement().scroll({
       left: nextScroll,
