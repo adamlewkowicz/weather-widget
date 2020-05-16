@@ -6,6 +6,7 @@ import {
 } from 'recharts';
 import { LineChartPoint } from './LineChartPoint';
 import styled from 'styled-components';
+import { WEATHER_COLUMN_WIDTH } from '../common/consts';
 
 interface LineChartProps {
   width: number
@@ -26,14 +27,11 @@ export const LineChart = (props: LineChartProps) => {
       height={props.height ?? 150}
       data={normalizedData}
     >
-      <CartesianAxis x={40} y={50} width={5} height={100} fill="red" />
       <Line
         label={props.renderLabel}
         type="linear"
         dataKey={DATA_KEY}
         stroke={props.lineColor}
-        points={[{ x: 1, y: 12, value: 140 }]}
-        // activeDot={{ r: 8 }}
         strokeWidth={2}
         dot={LineChartPoint}
       />
@@ -50,6 +48,13 @@ const StyledLineChart = styled(NativeLineChart).attrs(() => ({
   }
 }))`
   padding: 30px 0;
+  background: repeating-linear-gradient( 
+    90deg,
+    transparent 0,
+    transparent ${WEATHER_COLUMN_WIDTH}px,
+    #EEEEEE ${WEATHER_COLUMN_WIDTH}px,
+    #EEEEEE ${WEATHER_COLUMN_WIDTH + 1}px
+  );
 `
 
 const DATA_KEY = 'pv';

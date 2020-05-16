@@ -40,7 +40,7 @@ const Container = styled.div`
   &:before {
     content: "";
     position: absolute;
-    background: linear-gradient(to right, rgba(1,1,1,.08), transparent 50%);
+    background: linear-gradient(to right, rgba(1,1,1,.05), transparent 50%);
     width: 100px;
     height: 100%;
   }
