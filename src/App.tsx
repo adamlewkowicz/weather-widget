@@ -10,7 +10,7 @@ export const App = () => (
       title="Github repository"
       href="https://github.com/alk831/weather-widget"
     >
-      Kod GitHub
+      Repozytorium GitHub
     </Repository>
     <WeatherWidget 
       data={weatherData}
@@ -21,14 +21,13 @@ export const App = () => (
 
 const Container = styled.main`
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-  height: 100vh;
+  align-items: center;
 `
 
 const Repository = styled.a`
-
+  margin: 15px 0;
+  color: #0366d6;
 `
 
 const GlobalStyle = createGlobalStyle`
